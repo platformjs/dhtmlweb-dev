@@ -1,0 +1,61 @@
+Arguments: 
+  /Users/qyang/.nvm/versions/node/v8.12.0/bin/node /Users/qyang/.nvm/versions/node/v8.12.0/bin/yarn
+
+PATH: 
+  /Users/qyang/.nvm/versions/node/v8.12.0/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Users/qyang/bin/bash:/Users/qyang/.local/bin/bash:/Users/qyang/.local/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Users/qyang/bin/bash:/Users/qyang/.local/bin/bash:/Users/qyang/.local/bin
+
+Yarn version: 
+  1.12.3
+
+Node version: 
+  8.12.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: ENFILE: file table overflow, scandir '/Users/qyang/Library/Caches/Yarn/v4/npm-dhtmlweb-1.0.0-3abb80b5-f0be-4678-a3b6-d28cb55e76a3-1545113464845/node_modules/dhtmlweb/node_modules/node-sass/scripts/util'
+
+npm manifest: 
+  {
+      "name": "dhtmlweb-dev",
+      "version": "1.0.0",
+      "description": "",
+      "main": "index.js",
+      "scripts": {
+          "test": "echo \"Error: no test specified\" && exit 1",
+          "build": "webpack --mode development ./src/index.js --output ./dist/dhtmlweb-dev.js",
+          "prod": "webpack --mode production ./src/index.js --output ./dist/dhtmlweb-dev-min.js",
+          "dev": "webpack-dev-server --mode development --open"
+      },
+      "keywords": [],
+      "author": "",
+      "license": "ISC",
+      "devDependencies": {
+          "babel-core": "^6.26.3",
+          "babel-loader": "^7.1.5",
+          "babel-preset-env": "^1.7.0",
+          "css-loader": "^1.0.0",
+          "html-loader": "^0.5.5",
+          "html-webpack-plugin": "^3.2.0",
+          "jquery": "^3.3.1",
+          "mini-css-extract-plugin": "^0.4.1",
+          "node-sass": "^4.10.0",
+          "pre-build-webpack": "^0.1.0",
+          "sass-loader": "^7.1.0",
+          "webpack": "^4.16.5",
+          "webpack-cli": "^3.1.0",
+          "webpack-dev-server": "^3.1.10",
+          "dhtmlweb-quickname": "file:../dhtmlweb-quickname",
+          "dhtmlweb-template-compiler": "file:../dhtmlweb-template-compiler"
+      },
+      "dependencies": {
+          "dhtmlweb": "file:../dhtmlweb"
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
