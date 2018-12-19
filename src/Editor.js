@@ -23,8 +23,8 @@ export default class Editor extends dweb.component.Container{
         this.componentPalette = new ComponentPalette(this, this.getAvailableComponents());
 
         this.container = new dweb.component.Container();
-        this.container.addComponents([this.outline, this.propertyEditor, 
-                                        this.layoutEditor, this.layoutDataEditor, this.componentPalette]);
+        this.container.addComponents([this.componentPalette, this.outline, this.propertyEditor, 
+                                        this.layoutEditor, this.layoutDataEditor]);
    
         this.addComponents([this.designer, this.container]);
         this.setLayout(new dweb.layout.GridLayout({
@@ -37,13 +37,15 @@ export default class Editor extends dweb.component.Container{
         if (!component) {
             return;
         }
-        this.selectedComponent = component;
         this.highlightComponent(component);
+        if (this.selectedComponent === component) {
+            return;
+        }
+        this.selectedComponent = component;
         dweb.util.Log.debug(`select component on ${id}`, component);
         this.designer.selectComponent(component);
         this.outline.selectComponent(component);
         this.propertyEditor.selectComponent(component);
-
         if (this.isContainer(component)) {
             this.componentPalette.enableComponents();
         } else {

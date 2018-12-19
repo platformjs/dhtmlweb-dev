@@ -7,7 +7,16 @@ export default class Designer extends dweb.component.Container{
             width: 500,
             height: 500
         })
-        this.addComponents(dweb.generator.ComponentCreator.create(this.meta));
+        //TODO how does it get here
+        var user = window.user = new dweb.data.Data();
+        user.set({
+            name: "Jacky Wang"
+        });
+        this.setModel("user", user);
+        user.bind("changed", (m) => {
+            console.log(m.get("name"));
+        });
+        dweb.generator.ComponentCreator.create(this, this.meta)
         // this.bind("html.mousemove", (container, evt) => {
         //     clearTimeout(this.timeoutHandler);
         //     this.timeoutHandler = setTimeout(() => {

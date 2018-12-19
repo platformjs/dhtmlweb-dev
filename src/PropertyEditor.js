@@ -21,13 +21,14 @@ export default class PropertyEditor extends dweb.component.Panel {
 
     showProperties() {
         const props = this.getEditProperties();
+        this.cleanWatch();
         this.clearComponents();
         Util.each(props, prop => {
             const label = new dweb.component.Label();
             label.set({title: prop.text});
             const propEditor = this.getEditorComponent(prop);
             this.addComponents([label, propEditor]);
-            this.watchers.push(new dweb.util.Watcher(this.editComponent, prop.name, propEditor, "value"));
+            this.watchers.push(new dweb.util.Watcher.createWatcher(this.editComponent, prop.name, propEditor, "value"));
         });
     }
 

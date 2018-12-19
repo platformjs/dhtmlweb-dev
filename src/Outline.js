@@ -50,7 +50,8 @@ export default class Outline extends dweb.component.Panel{
     addComponent(parentId, component) {
         this.tree.addItem(parentId, {
             id: component.get("id"),
-            name: component.get("clazz")
+            name: component.get("clazz"),
+            items: this.editor.isContainer(component) ? [] : null
         });
     }
 }

@@ -17,7 +17,7 @@ export default {
         text: "Height"
     },
     disabled: {
-        type: "boolean",
+        type: "string",
         text: "Disabled"
     },
     extend: {
