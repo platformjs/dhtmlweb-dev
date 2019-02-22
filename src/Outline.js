@@ -31,8 +31,8 @@ export default class Outline extends dweb.component.Panel{
     extract(items, dataItems) {
         Util.each(dataItems, dataItem => {
             const item = {
-                id: dataItem.attr.id,
-                name: dataItem.attr.clazz
+                id: dataItem.props.id,
+                name: dataItem.props.clazz
             };
             if (dataItem.components) {
                 item.expanded = true;

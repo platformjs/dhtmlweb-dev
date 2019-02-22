@@ -5,6 +5,15 @@
     <script src="../node_modules/dhtmlweb/dist/dhtmlweb.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="../node_modules/dhtmlweb/dist/main.css">
+    <script>
+        function render(json) {
+            $(function() {
+                var file = "src/user/login.page.json";
+                var editor = window.editor = new dwebDev.Editor(file, json);
+                $(".editor").html(editor.render().$el);
+            });
+        }
+    </script>
 </head>
 <body class="dhtmlweb">
     <div class="editor">
@@ -13,7 +22,7 @@
 </html>
 <script>
     var viewJson = {
-        attr: {
+        props: {
             clazz: "dweb.component.Page",
             width: 300,
             height: 400,
@@ -21,15 +30,12 @@
         },
         layout: {
             clazz: "dweb.layout.GridLayout",
-            attr: {
+            props: {
                 numberOfColumn: 1
             }
         },
-        layoutData: {
-
-        },
         components: [{
-            attr: {
+            props: {
                 clazz: "dweb.component.Button",
                 title: "确认",
                 width: 100,
@@ -39,53 +45,53 @@
         }, {
             layout: {
                 clazz: "dweb.layout.GridLayout",
-                attr: {
+                props: {
                     numberOfColumn: 2
                 }
             },
-            attr: {
+            props: {
                 id: "f1",
                 clazz: "dweb.component.Container",
             },
             components: [
                 {
-                    
-                    attr: {
+                    props: {
                         title: "Name:",
                         clazz: "dweb.component.Label",
                         id: "l1"
                     }
                 }, {
-                    
-                    attr: {
+                    props: {
                         clazz: "dweb.component.TextField",
                         id: "t1",
-                        value: "{{user.name}}"
+                        value: "Jacky",
+                        extend: "dwebDev.ext.Ext.textField"
                     }
                 }, {
-                    
-                    attr: {
+                    props: {
                         clazz: "dweb.component.Label",
-                        title: "Password",
+                        title: "Name Copy",
                         id: "l2"
                     }
                 }, {
                     
-                    attr: {
+                    props: {
                         clazz: "dweb.component.TextField",
-                        id: "t2"
+                        id: "t2",
+                        value: "Jacky",
+                        extend: "dwebDev.ext.Ext.textField"
                     }
                 },
                 {
                     
-                    attr: {
+                    props: {
                         clazz: "dweb.component.Label",
                         title: "Currency",
                         id: "l3"
                     }
                 },
                 {
-                    attr: {
+                    props: {
                         clazz: "dweb.component.Select",
                         text: "US Dollor",
                         value: "usd",
@@ -94,7 +100,7 @@
                     }
                 },
                 {
-                    attr: {
+                    props: {
                         clazz: "dweb.component.Button",
                         title: "Login",
                         id: "b1",
@@ -104,7 +110,4 @@
             ]
         }]
     }
-    var file = "src/user/login.page.json";
-    var editor = window.editor = new dwebDev.Editor(file, viewJson);
-    $(".editor").html(this.editor.render().$el);
 </script>

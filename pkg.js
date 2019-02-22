@@ -4,7 +4,6 @@ import Designer from "./src/Designer.js";
 import Editor from "./src/Editor.js";
 import EventEditor from "./src/EventEditor.js";
 import Ext from "./src/ext/Ext.js";
-import LayoutDataEditor from "./src/LayoutDataEditor.js";
 import LayoutEditor from "./src/LayoutEditor.js";
 import common from "./src/meta/common.js";
 import componentsmeta from "./src/meta/componentsmeta.js";
@@ -20,7 +19,6 @@ export default
   ext: {
       Ext,
     },
-  LayoutDataEditor,
   LayoutEditor,
   meta: {
       common,

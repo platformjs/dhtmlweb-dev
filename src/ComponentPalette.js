@@ -1,10 +1,8 @@
-export default class ComponentPalette extends dweb.component.Panel {
+export default class ComponentPalette extends dweb.component.Container {
     constructor(editor, componentMetas) {
         super();
         this.set({
-            title: "Component Palette",
-            width: 400,
-            height: 300
+            width: 80
         });
         this.editor = editor;
         this.componentMetas = componentMetas;
@@ -20,7 +18,8 @@ export default class ComponentPalette extends dweb.component.Panel {
             btn.set({
                 title: meta.clazz,
                 clazz: meta.clazz,
-                disabled: true
+                disabled: true,
+                width: 40
             });
             btn.bind("html.click", (b) => {
                 this.editor.addComponent(b.get("clazz"));

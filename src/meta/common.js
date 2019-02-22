@@ -23,5 +23,17 @@ export default {
     extend: {
         type: "string",
         text: "Extend"
+    },
+    name: {
+        type: "string",
+        text: "Name"
+    },
+    style: {
+        type: "string",
+        text: "Style"
+    },
+    styleClass: {
+        type: "string",
+        text: "StyleClass"
     }
 }

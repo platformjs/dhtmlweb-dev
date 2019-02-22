@@ -3,7 +3,6 @@ import Outline from "./Outline";
 import PropertyEditor from "./PropertyEditor";
 import EventEditor from "./EventEditor";
 import LayoutEditor from "./LayoutEditor";
-import LayoutDataEditor from "./LayoutDataEditor";
 import ComponentPalette from "./ComponentPalette";
 import ComponentProxy from "./ComponentProxy";
 import componentsmeta from "./meta/componentsmeta";
@@ -19,14 +18,20 @@ export default class Editor extends dweb.component.Container{
         this.outline = new Outline(this.meta, this);
         this.propertyEditor = new PropertyEditor(this);
         this.layoutEditor = new LayoutEditor();
-        this.layoutDataEditor = new LayoutDataEditor();
         this.componentPalette = new ComponentPalette(this, this.getAvailableComponents());
 
         this.container = new dweb.component.Container();
-        this.container.addComponents([this.componentPalette, this.outline, this.propertyEditor, 
-                                        this.layoutEditor, this.layoutDataEditor]);
+        this.container.addComponents([this.outline, this.propertyEditor, 
+                                        this.layoutEditor]);
+
+        const container = new dweb.component.Container();
+        container.setLayout(new dweb.layout.GridLayout({
+            numberOfColumn: 2
+        }));
+        container.addComponents([this.componentPalette, this.container]);                                
+        
    
-        this.addComponents([this.designer, this.container]);
+        this.addComponents([this.designer, container]);
         this.setLayout(new dweb.layout.GridLayout({
             numberOfColumn: 2
         }));
@@ -96,7 +101,9 @@ export default class Editor extends dweb.component.Container{
                 icon: meta.icon
             });
         });
-        return coms;
+        return coms.sort((a, b) => {
+            return a.clazz.localeCompare(b.clazz);
+        });
     }
 
     getComponentMeta(clazz) {
