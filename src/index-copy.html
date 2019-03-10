@@ -6,26 +6,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="../node_modules/dhtmlweb/dist/main.css">
     <script>
-        let metaDataManager;
         function render(json) {
-            metaDataManager = new dwebDev.metadata.MetaDataManager(json);
-            navigatorManager = new dwebDev.navigator.NavigatorManager("#navigator", metaDataManager);
-            $(() => {
-                // $(document).click(() => {
-                //     metaDataManager.addComponent(metaDataManager.root, {});
-                //     //this is a proxy of java function
-                //     java_update_document(JSON.stringify(metaDataManager.toJSON()));
-                // });
-                navigatorManager.render();
+            $(function() {
+                var file = "src/user/login.page.json";
+                var editor = window.editor = new dwebDev.Editor(file, json);
+                $(".editor").html(editor.render().$el);
             });
         }
     </script>
 </head>
-<body>
-    <div>
-        <div style="position:absolute;width:300px;right:0px;">
-            <div id="navigator"></div>
-        </div>
+<body class="dhtmlweb">
+    <div class="editor">
     </div>
 </body>
 </html>
@@ -119,5 +110,5 @@
             ]
         }]
     }
-    render(viewJson);
+    // render(viewJson);
 </script>
