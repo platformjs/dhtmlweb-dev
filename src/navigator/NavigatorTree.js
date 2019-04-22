@@ -1,5 +1,5 @@
 const template = `
-    
+    <div></div>
 `;
 export default class NavigatorTree {
     constructor(selector) {
